@@ -10,8 +10,11 @@
       gap:20px;
       grid-template-columns: 1fr;
     }
-    @media(min-width:800px){
-      .bento{ grid-template-columns: repeat(3, 1fr); }
+    @media(min-width:600px){
+      .bento{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media(min-width:1000px){
+      .bento{ grid-template-columns: repeat(4, 1fr); }
     }
 
     .clay-card{
@@ -32,59 +35,79 @@
         12px 12px 0px #111,
         inset 6px 6px 12px rgba(255,255,255,0.9);
     }
-    
-    /* Pastel colors */
+
+     /* Pastel colors */
     .c1{ background:#FFD6A7; }
     .c2{ background:#B5EAD7; }
     .c3{ background:#FFDAC1; }
     .c4{ background:#E2F0CB; }
+    .c5{ background:#c1cfd8; }
 
    .menu-item{
-  transition: all 0.15s ease;
-  cursor: pointer;
-}
-.menu-item:hover{
-  transform: translate(-2px, -2px) scale(1.03);
-  box-shadow: 4px 4px 0px #111;
-  background: #FFF8F0 !important;
-}
-.menu-item:active{
-  transform: translate(0px, 0px) scale(0.98);
-  box-shadow: 1px 1px 0px #111;
-}
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .menu-item:hover{
+      transform: translate(-2px, -2px) scale(1.03);
+      box-shadow: 4px 4px 0px #111;
+      background: #FFF8F0 !important;
+    }
+    .menu-item:active{
+      transform: translate(0px, 0px) scale(0.98);
+      box-shadow: 1px 1px 0px #111;
+    }
   </style>
 </head>
 <body>
-  <h1>Anand's Cafe - Day 2</h1>
+  <h1>Cafino</h1>
   <div class="bento">
-    <div class="clay-card c1" style="grid-row: span 2;">
-      <h2>☕ Signature Coffee</h2>
-      <p>Strong & Smooth</p>
+    
+    <div class="clay-card c1" style="grid-column: span 4;">
+      <h2>☕ Cafino - Fresh Brew, Cozy Vibe</h2>
+      <p>Signature Coffee - Strong & Smooth | Est. 2024 - Delhi</p>
     </div>
+    
     <div class="clay-card c2">
-  <h3>📜 Menu</h3>
-  <div style="margin-top:16px; display:flex; flex-direction:column; gap:12px;">
-    
-    <div style="display:flex; justify-content:space-between; background:white; border:3px solid #111; border-radius:16px; padding:10px 14px;" class="menu-item">
-      <span>Espresso</span> <b>₹120</b>
-    </div>
-    
-    <div style="display:flex; justify-content:space-between; background:white; border:3px solid #111; border-radius:16px; padding:10px 14px;" class="menu-item">
-      <span>Cappuccino</span> <b>₹180</b>
-    </div>
-    
-    <div style="display:flex; justify-content:space-between; background:white; border:3px solid #111; border-radius:16px; padding:10px 14px;" class="menu-item">
-      <span>Cold Brew</span> <b>₹200</b>
-    </div>
-    
-    <div style="display:flex; justify-content:space-between; background:white; border:3px solid #111; border-radius:16px; padding:10px 14px;" class="menu-item">
-      <span>Croissant</span> <b>₹150</b>
+      <h3>📜 Menu</h3>
+      <div style="margin-top:16px; display:flex; flex-direction:column; gap:12px;">
+        <div style="display:flex; justify-content:space-between; background:white; border:3px solid #111; border-radius:16px; padding:10px 14px;" class="menu-item">
+          <span>Espresso</span> <b>₹120</b>
+        </div>
+        <div style="display:flex; justify-content:space-between; background:white; border:3px solid #111; border-radius:16px; padding:10px 14px;" class="menu-item">
+          <span>Cappuccino</span> <b>₹180</b>
+        </div>
+        <div style="display:flex; justify-content:space-between; background:white; border:3px solid #111; border-radius:16px; padding:10px 14px;" class="menu-item">
+          <span>Cold Brew</span> <b>₹200</b>
+        </div>
+        <div style="display:flex; justify-content:space-between; background:white; border:3px solid #111; border-radius:16px; padding:10px 14px;" class="menu-item">
+          <span>Croissant</span> <b>₹150</b>
+        </div>
+      </div>
     </div>
 
-  </div>
-</div>
-    <div class="clay-card c3"><h3>About</h3></div>
-    <div class="clay-card c4" style="grid-column: span 2;"><h3>Visit Us - Claymorphism Contact Card</h3></div>
+    <!-- About - Clay Card me -->
+    <div class="clay-card c3" style="grid-column: span 2;">
+      <h3>🌿 About Us</h3>
+      <p style="margin-top:10px; line-height:1.5;">We are a small, cozy cafe in Delhi. Our beans are sourced directly from Chikmagalur. Claymorphism design jaisa hi soft & warm experience.</p>
+      <div style="margin-top:14px; display:flex; gap:10px;">
+        <span style="background:white; border:2px solid #111; border-radius:20px; padding:4px 10px; font-size:12px;">Organic</span>
+        <span style="background:white; border:2px solid #111; border-radius:20px; padding:4px 10px; font-size:12px;">Cozy</span>
+      </div>
+    </div>
+
+    <!-- Contact - Clay Card me -->
+    <div class="clay-card c4" style="grid-column: span 1; grid-row: span 2;">
+      <h3>📍 Visit Us</h3>
+      <p style="margin-top:10px;"><b>Timing:</b><br>8 AM - 10 PM</p>
+      <p style="margin-top:10px;"><b>Location:</b><br>Shahpur Jat, Delhi</p>
+      <button style="margin-top:16px; width:100%; background:#111; color:white; border:none; border-radius:16px; padding:12px; font-family:'Nunito'; font-weight:800; cursor:pointer;">Get Directions</button>
+    </div>
+
+    <div class="clay-card c5">
+      <h3>⭐ Today's Special</h3>
+      <p style="margin-top:8px; font-size:18px; font-weight:800;">Hazelnut Latte + Cookie @ ₹250</p>
+    </div>
+
   </div>
 </body>
 </html>
