@@ -1,113 +1,128 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&display=swap" rel="stylesheet">
   <style>
-    body{ background:#0E0E0E; color:white; font-family:'Nunito', sans-serif; padding:20px; }
-    
-    .bento{
-      display:grid;
-      gap:20px;
+    body {
+      background: #0E0E0E;
+      color: white;
+      font-family: 'Nunito', sans-serif;
+      padding: 20px;
+      margin: 0;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .bento {
+      display: grid;
+      gap: 20px;
+      padding-bottom: 40px;
       grid-template-columns: 1fr;
+      align-items: start;
     }
-    @media(min-width:600px){
-      .bento{ grid-template-columns: repeat(2, 1fr); }
-    }
-    @media(min-width:1000px){
-      .bento{ grid-template-columns: repeat(4, 1fr); }
-    }
-
-    .clay-card{
-      background:#FFF8F0;
-      border:4px solid #111;
-      border-radius:28px;
-      padding:24px;
-      color:#111;
-      box-shadow: 
-        8px 8px 0px #111,
-        inset 6px 6px 12px rgba(255,255,255,0.9),
-        inset -6px -6px 12px rgba(0,0,0,0.1);
+    .clay-card {
+      background: #FFF8F0;
+      border: 4px solid #111;
+      border-radius: 28px;
+      padding: 24px;
+      color: #111;
+      box-shadow: 8px 8px 0px #111, inset 6px 6px 12px rgba(255,255,255,0.9), inset -6px -6px 12px rgba(0,0,0,0.1);
       transition: all 0.2s ease;
     }
-    .clay-card:hover{
-      transform: translate(-4px, -4px) scale(1.02);
-      box-shadow: 
-        12px 12px 0px #111,
-        inset 6px 6px 12px rgba(255,255,255,0.9);
-    }
+    .clay-card:hover { transform: translate(-2px, -2px); box-shadow: 10px 10px 0px #111, inset 6px 6px 12px rgba(255,255,255,0.9); }
+    .c1 { background: #FFD6A7; }
+    .c2 { background: #B5EAD7; }
+    .c3 { background: #FFDAC1; }
+    .c4 { background: #E2F0CB; }
+    .c5 { background: #c1cfd8; padding:0; overflow:hidden; }
+    .menu-item { transition: all 0.15s ease; cursor: pointer; }
+    .menu-item:active { transform: scale(0.97); }
+    .hero { grid-column: 1 / -1; }
+    .img-wrap { overflow:hidden; border-radius:24px 24px 0 0; }
+    .img-wrap img { width:100%; height:220px; object-fit:cover; display:block; transition: transform 0.4s ease; }
+    .img-wrap:hover img { transform: scale(1.05); }
 
-     /* Pastel colors */
-    .c1{ background:#FFD6A7; }
-    .c2{ background:#B5EAD7; }
-    .c3{ background:#FFDAC1; }
-    .c4{ background:#E2F0CB; }
-    .c5{ background:#c1cfd8; }
+       @media(min-width:600px) {
+      .bento { grid-template-columns: repeat(2, 1fr); }
+      .hero { grid-column: 1 / -1; }
+    }
+  
+    @media(min-width:1000px) {
+      .bento { grid-template-columns: repeat(4, 1fr); }
+      .hero { grid-column: 1 / -1; }
+      .menu-card { grid-column: span 1; }
+      .about-card { grid-column: span 2; }
+      .visit-card { grid-column: span 1; align-self: start; }
+      .special-card { grid-column: span 4; display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
+      .special-card .img-wrap { border-radius: 24px 0 0 24px; }
+      .special-card .img-wrap img { height: 100%; min-height: 220px; }
+    }
+    .menu-item:hover {
+  background: #FFF8F0 !important;
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0px #111;
+}
 
-   .menu-item{
-      transition: all 0.15s ease;
-      cursor: pointer;
-    }
-    .menu-item:hover{
-      transform: translate(-2px, -2px) scale(1.03);
-      box-shadow: 4px 4px 0px #111;
-      background: #FFF8F0 !important;
-    }
-    .menu-item:active{
-      transform: translate(0px, 0px) scale(0.98);
-      box-shadow: 1px 1px 0px #111;
-    }
+/* Get Directions button */
+.visit-card button {
+  transition: all 0.2s ease;
+  box-shadow: 0px 4px 0px #333;
+}
+.visit-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 0px #333;
+  background: #222 !important;
+}
+.visit-card button:active {
+  transform: translateY(2px) scale(0.90);
+  box-shadow: 0px 1px 0px #333;
+}
   </style>
 </head>
 <body>
   <h1>Cafino</h1>
   <div class="bento">
-    
-    <div class="clay-card c1" style="grid-column: span 4;">
+    <div class="clay-card c1 hero">
       <h2>☕ Cafino - Fresh Brew, Cozy Vibe</h2>
       <p>Signature Coffee - Strong & Smooth | Est. 2024 - Delhi</p>
     </div>
-    
-    <div class="clay-card c2">
+
+    <div class="clay-card c2 menu-card">
       <h3>📜 Menu</h3>
       <div style="margin-top:16px; display:flex; flex-direction:column; gap:12px;">
-        <div style="display:flex; justify-content:space-between; background:white; border:3px solid #111; border-radius:16px; padding:10px 14px;" class="menu-item">
-          <span>Espresso</span> <b>₹120</b>
-        </div>
-        <div style="display:flex; justify-content:space-between; background:white; border:3px solid #111; border-radius:16px; padding:10px 14px;" class="menu-item">
-          <span>Cappuccino</span> <b>₹180</b>
-        </div>
-        <div style="display:flex; justify-content:space-between; background:white; border:3px solid #111; border-radius:16px; padding:10px 14px;" class="menu-item">
-          <span>Cold Brew</span> <b>₹200</b>
-        </div>
-        <div style="display:flex; justify-content:space-between; background:white; border:3px solid #111; border-radius:16px; padding:10px 14px;" class="menu-item">
-          <span>Croissant</span> <b>₹150</b>
-        </div>
+        <div style="display:flex; justify-content:space-between; background:white; border:3px solid #111; border-radius:16px; padding:10px 14px;" class="menu-item"><span>Espresso</span> <b>₹120</b></div>
+        <div style="display:flex; justify-content:space-between; background:white; border:3px solid #111; border-radius:16px; padding:10px 14px;" class="menu-item"><span>Cappuccino</span> <b>₹180</b></div>
+        <div style="display:flex; justify-content:space-between; background:white; border:3px solid #111; border-radius:16px; padding:10px 14px;" class="menu-item"><span>Cold Brew</span> <b>₹200</b></div>
+        <div style="display:flex; justify-content:space-between; background:white; border:3px solid #111; border-radius:16px; padding:10px 14px;" class="menu-item"><span>Croissant</span> <b>₹150</b></div>
       </div>
     </div>
 
-    <!-- About - Clay Card me -->
-    <div class="clay-card c3" style="grid-column: span 2;">
+    <div class="clay-card c3 about-card">
       <h3>🌿 About Us</h3>
-      <p style="margin-top:10px; line-height:1.5;">We are a small, cozy cafe in Delhi. Our beans are sourced directly from Chikmagalur. Claymorphism design jaisa hi soft & warm experience.</p>
+      <p style="margin-top:10px; line-height:1.6;">We are a small, cozy cafe in Delhi. Our beans are sourced directly from Chikmagalur.</p>
       <div style="margin-top:14px; display:flex; gap:10px;">
         <span style="background:white; border:2px solid #111; border-radius:20px; padding:4px 10px; font-size:12px;">Organic</span>
         <span style="background:white; border:2px solid #111; border-radius:20px; padding:4px 10px; font-size:12px;">Cozy</span>
       </div>
     </div>
 
-    <!-- Contact - Clay Card me -->
-    <div class="clay-card c4" style="grid-column: span 1; grid-row: span 2;">
+    <div class="clay-card c4 visit-card">
       <h3>📍 Visit Us</h3>
       <p style="margin-top:10px;"><b>Timing:</b><br>8 AM - 10 PM</p>
       <p style="margin-top:10px;"><b>Location:</b><br>Shahpur Jat, Delhi</p>
-      <button style="margin-top:16px; width:100%; background:#111; color:white; border:none; border-radius:16px; padding:12px; font-family:'Nunito'; font-weight:800; cursor:pointer;">Get Directions</button>
+      <button style="margin-top:16px; width:100%; background:#111; color:white; border:none; border-radius:16px; padding:14px 28px; font-family:'Nunito'; font-weight:800; cursor:pointer;">Get Directions</button>
     </div>
 
-    <div class="clay-card c5">
-      <h3>⭐ Today's Special</h3>
-      <p style="margin-top:8px; font-size:18px; font-weight:800;">Hazelnut Latte + Cookie @ ₹250</p>
+    <div class="clay-card c5 special-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
+      </div>
+      <div style="padding:24px;">
+        <h3>⭐ Today's Special</h3>
+        <p style="margin-top:8px; font-weight:800;">Hazelnut Latte @ ₹250</p>
+        <p style="margin-top:6px; opacity:0.7; font-size:14px;">Freshly brewed with roasted hazelnut syrup.</p>
+      </div>
     </div>
-
   </div>
 </body>
 </html>
